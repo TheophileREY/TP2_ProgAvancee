@@ -35,4 +35,8 @@ public:
     void setSeconds(int s) {
         seconds = s;
     }
+    SecDuration toSecDuration() const {
+        int totalSeconds = seconds + minutes * 60 + hours * 3600 + days * 24 * 3600;
+        return SecDuration(totalSeconds);
+    }
 };
