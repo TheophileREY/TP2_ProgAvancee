@@ -45,8 +45,30 @@ public:
         seconds = s;
     }
 
-    SecDuration toSecDuration() const {
-        int totalSeconds = seconds + minutes * 60 + hours * 3600 + days * 24 * 3600;
-        return SecDuration(totalSeconds);
+    void incrementSeconds(int sec = 1) {
+        seconds += sec;
+        while (seconds >= 60) {
+            seconds -= 60;
+            incrementMinutes(1);
+        }
     }
+    void incrementMinutes(int min = 1) {
+        minutes += min;
+        while (minutes >= 60) {
+            minutes -= 60;
+            incrementHours(1);
+        }
+    }
+    void incrementHours(int hour = 1) {
+        hours += hour;
+        while (hours >= 24) {
+            hours -= 24;
+            incrementDays(1);
+        }
+    }
+    void incrementDays(int day = 1) {
+        days += day;
+    }
+
+    SecDuration toSecDuration() const;
 };
