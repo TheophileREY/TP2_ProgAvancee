@@ -6,10 +6,19 @@ private:
     int seconds;
 
 public:
-    // Constructeur par défaut, pour tout initialiser à 0
     FullDuration() : days(0), hours(0), minutes(0), seconds(0) {}
-    // Constructeur avec paramètres, pour initialiser chaque valeur
     FullDuration(int d, int h, int m, int s) : days(d), hours(h), minutes(m), seconds(s) {}
+
+    // Constructeur
+    FullDuration(int totalSeconds) {
+        days = totalSeconds / (24 * 3600);
+        totalSeconds %= (24 * 3600);
+        hours = totalSeconds / 3600;
+        totalSeconds %= 3600;
+        minutes = totalSeconds / 60;
+        seconds = totalSeconds % 60;
+    }
+
     // Getters et Setters
     int getDays() const {
         return days;
@@ -35,6 +44,7 @@ public:
     void setSeconds(int s) {
         seconds = s;
     }
+
     SecDuration toSecDuration() const {
         int totalSeconds = seconds + minutes * 60 + hours * 3600 + days * 24 * 3600;
         return SecDuration(totalSeconds);
