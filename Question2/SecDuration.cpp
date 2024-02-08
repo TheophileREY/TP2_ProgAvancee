@@ -1,4 +1,4 @@
-#include "FullDuration.cpp"
+#include "FullDuration.cpp" 
 
 class SecDuration {
 private:
@@ -7,6 +7,11 @@ private:
 public:
     SecDuration() : seconds(0) {}
     SecDuration(int s) : seconds(s) {}
+
+    // Constructeur
+    SecDuration(int d, int h, int m, int s) {
+        seconds = s + m * 60 + h * 3600 + d * 24 * 3600;
+    }
     int getSeconds() const {
         return seconds;
     }
