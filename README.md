@@ -11,7 +11,7 @@ Forme(int f0, int f1, int f2) : f0(f0), f1(f1), f2(f2) {}
 Les modifications pour la derniere version de la Question 1 sont dans le dernier commit.
 
 
-## Question 3
+## Question 3
 
 Classe Day
 -> Représente un jour du mois.
